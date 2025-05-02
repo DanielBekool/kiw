@@ -1,0 +1,800 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  
+  <!--Google Font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  
+  <!--AOS-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Tippy.js -->
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" />
+  <script src="https://unpkg.com/popper.js@1"></script>
+  <script src="https://unpkg.com/tippy.js@5"></script>
+
+<!-- Alpine JS -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+
+  <title>Kawasan Industri Wijayakusuma</title>
+</head>
+<body>
+
+    <!--Opening Animation  
+        <div id="splash-screen">
+            <div class="logo-sequence min-w-[100vw] min-h-[100vh] flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat" style="background-image: url(./img/background.webp);">
+            <div class="absolute inset-0 bg-white opacity-90 z-10"></div>
+            
+            <img id="logo-image" class="relative z-20 min-h-18 max-h-18  object-contain" src="./img/kic.png" alt="Logo">
+            <div id="year-text" class="custom-shadow z-30 lg:text-[15em] sm:text-[20em] text-[10em] lg:py-0 py-4 font-bold text-transparent bg-[url('./img/background.webp')] bg-cover bg-center bg-no-repeat bg-clip-text bg-fixed pointer-events-none lg:-mt-15 sm:-mt-25 -mt-16">
+                    1988
+            </div>
+            
+            
+
+              
+            </div>
+        </div>
+
+        <div id="logo-sequence" class="hidden" >
+            <img class="logo-item" data-year="1998" src="./img/kiw-removebg-preview.png" alt="Logo tahun 1998">
+            <img class="logo-item" data-year="2018" src="./img/logo-pwskiw-ok.png" alt="Logo tahun 2018">
+            <img class="logo-item" data-year="2020" src="./img/grand_batang_city_3.png" alt="Logo tahun 2020">
+            <img class="logo-item" data-year="2022" src="./img/Danareksa (1).png" alt="Logo tahun 2022">
+            <img class="logo-item" data-year="2022" src="./img/kiw danareksa.png" alt="Logo tahun 2022">
+            <img class="logo-item" data-year="2024" src="./img/kiw danareksa.png" alt="Logo tahun 2024">
+           
+        
+            
+        </div >
+
+    -->
+
+    <!-- Video Modal Overlay -->
+    <div id="videoModal"
+        class="modal-overlay fixed inset-0 flex items-center justify-center z-50 hidden"
+        onclick="closeVideoModalOnOverlay(event)">
+        
+        <!-- Modal Content -->
+        <div class="relative w-full max-w-2xl aspect-video" onclick="event.stopPropagation()">
+            <iframe
+            id="youtubeIframe"
+            class="w-full h-full rounded"
+            src=""
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            ></iframe>
+
+            <!-- Close Button -->
+            <button
+            class="absolute -top-10 -right-10 text-white text-2xl font-bold cursor-pointer"
+            onclick="closeVideoModal()"
+            >
+            ×
+            </button>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div id="main-content-" class="hidden-">
+
+        <!--Start Header Menu-->
+        <div x-data="{ open: false, openSubMenu: null }" > 
+            <header x-data="{ open: false }" class=" absolute top-0 left-1/2 -translate-x-1/2 lg:w-[1200px] z-99999">
+                <div class="lg:max-w-[1200px] mx-auto  flex pt-5 justify-between">
+            
+                    <!--Logo-->
+                    <div class=" flex items-center ">
+                            <a href="#"><img class="w-20 filter brightness-0 invert" src="./img/logo.png" alt="logo"></a>
+                    </div>
+
+                    <!--Main Menu-->
+                    <nav class="hidden sm:ml-6 sm:flex">
+                        <ul class="flex gap-5 items-center">
+
+                            <!-- Item -->
+                            <li>
+                                <a href="#" class="inline-flex items-center px-1 pt-1 font-medium text-[var(--color-heading)] hover:text-[var(--color-blue)]">
+                                    Home
+                                </a>
+                            </li>
+
+                            <!-- Item w sub -->
+                            <li class="relative group">
+                                <a href="#" class="inline-flex items-center px-1 pt-1 font-medium text-[var(--color-heading)] hover:text-[var(--color-blue)] focus:outline-none">
+                                    About
+                                    <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 011.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+
+                                <!-- Submenu -->
+                                <ul class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md  opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Management</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Corporate Secretary</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Item -->
+                            <li>
+                                <a href="#" class="inline-flex items-center px-1 pt-1 font-medium text-[var(--color-heading)] hover:text-[var(--color-blue)]">
+                                    Business
+                                </a>
+                            </li>
+                        
+                            <!-- Item -->
+                            <li>
+                            <a href="#" class="inline-flex items-center px-1 pt-1 font-medium text-[var(--color-heading)] hover:text-[var(--color-blue)]">
+                                Products
+                            </a>
+                            </li>
+                        
+                           <!-- Item w sub -->
+                            <li class="relative group">
+                                <a href="#" class="inline-flex items-center px-1 pt-1 font-medium text-[var(--color-heading)] hover:text-[var(--color-blue)] focus:outline-none">
+                                    Investor Relation
+                                    <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 011.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                                
+                                <!-- Submenu -->
+                                <ul class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Annual Report</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">GMS</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Item w sub -->
+                            <li class="relative group">
+                                <a href="#" class="inline-flex items-center px-1 pt-1 text-gray-700 font-medium hover:text-blue-600 focus:outline-none">
+                                    Media
+                                    <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 011.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                                
+                                <!-- Submenu -->
+                                <ul class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">News Update</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Gallery</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Item -->
+                            <li>
+                            <a href="#" class="inline-flex items-center px-1 pt-1 font-medium text-[var(--color-heading)] hover:text-[var(--color-blue)]">
+                                Career
+                            </a>
+                            </li>
+
+                            <!-- Item -->
+                            <li>
+                                <a href="#" class="inline-flex items-center px-1 pt-1 font-medium text-[var(--color-heading)] hover:text-[var(--color-blue)]">
+                                    Contact
+                                </a>
+                                </li>
+
+                        </ul>
+                    </nav>
+
+                    <!--Button-->
+                    <div class="self-center hidden lg:block sm:block">
+                        <a href="#" class="text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md">
+                            Unduh Brosur
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="sm:hidden">
+                        <button @click="open = !open" class="text-gray-700 focus:outline-none">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+
+
+
+                    
+                <!-- Off-canvas Mobile Menu -->
+                <div x-show="open" class="fixed inset-0 bg-black bg-opacity-50 z-40 sm:hidden" @click="open = false"></div>
+
+                <div x-show="open"
+                    class="fixed top-0 right-0 w-[90%] h-full bg-cover shadow-lg z-50 transform transition-transform duration-300 ease-in-out sm:hidden"
+                    style="background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 10%, rgba(255, 255, 255, 0.45) 100%), url(./img/top-view-of-a-truck-driving-along-a-highway-road-i-2023-11-27-05-27-13-utc-111-scaled.jpg);"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="translate-x-full"
+                    x-transition:enter-end="translate-x-0"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="translate-x-0"
+                    x-transition:leave-end="translate-x-full">
+
+                    <div class="px-6 mt-5">
+                        <button @click="open = false" class="text-gray-700 float-right">
+                            ✕
+                        </button>
+
+                        <div class="pt-10">
+
+                            <!--Logo-->
+                            <div class=" flex items-center ">
+                                <a href="#"><img class="w-25" src="./img/logo.png" alt="logo"></a>
+                            </div>
+
+                            <ul class="mt-10 space-y-4">
+
+                                <!-- Item -->
+                                <li><a href="#" class="block text-[var(--color-heading)] hover:text-[var(--color-blue)]">Home</a></li>
+
+                                <!-- Item w sub -->
+                                <li x-data="{ openSubMenu: null }"
+                                     @click="if (!$event.target.closest('a')) { openSubMenu === 'about' ? openSubMenu = null : openSubMenu = 'about' }" 
+                                     class="cursor-pointer select-none" 
+                                >
+                                    <div class="flex flex-row  justify-between items-start w-full">
+                                        <a href="#" class="block text-[var(--color-heading)] hover:text-[var(--color-blue)]">
+                                            About
+                                        </a>
+
+                                        <div class="ml-2 text-[var(--color-heading)] hover:text-[var(--color-blue)]">
+                                            <svg class="w-4 h-4 transform" 
+                                                :class="{ 'rotate-180': openSubMenu === 'about' }" 
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" 
+                                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 011.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z" 
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <!-- Submenu -->
+                                    <ul x-show="openSubMenu === 'about'" class="ml-4 mt-2 space-y-2 text-sm text-[var(--color-text)]" x-cloak>
+                                        <li><a href="#" class="block hover:text-[var(--color-blue)]">Profile</a></li>
+                                        <li><a href="#" class="block hover:text-[var(--color-blue)]">Management</a></li>
+                                        <li><a href="#" class="block hover:text-[var(--color-blue)]">Corporate Secretary</a></li>
+                                    </ul>
+
+                                </li>
+
+                                <!-- Item -->
+                                <li><a href="#" class="block text-[var(--color-heading)] hover:text-[var(--color-blue)]">Contact</a></li>
+
+                                <!-- Item -->
+                                <li><a href="#" class="block text-[var(--color-heading)] hover:text-[var(--color-blue)]">Business</a></li>
+
+                                <!-- Item -->
+                                <li><a href="#" class="block text-[var(--color-heading)] hover:text-[var(--color-blue)]">Products</a></li>
+
+                                <!-- Item w sub -->
+                                <li x-data="{ openSubMenu: null }"
+                                     @click="if (!$event.target.closest('a')) { openSubMenu === 'investor' ? openSubMenu = null : openSubMenu = 'investor' }" 
+                                     class="cursor-pointer select-none" 
+                                >
+                                    <div class="flex flex-row justify-between items-start w-full">
+                                        <a href="#" class="block text-[var(--color-heading)] hover:text-[var(--color-blue)]">
+                                            Investor Relation
+                                        </a>
+
+                                        <div class="ml-2 text-[var(--color-heading)] hover:text-[var(--color-blue)]">
+                                            <svg class="w-4 h-4 transform" 
+                                                :class="{ 'rotate-180': openSubMenu === 'investor' }" 
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" 
+                                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 011.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z" 
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                
+                                    <!-- Submenu -->
+                                    <ul x-show="openSubMenu === 'investor'" class="ml-4 mt-2 space-y-2 text-sm text-[var(--color-text)]" x-cloak>
+                                        <li><a href="#" class="block hover:text-[var(--color-blue)]">Annual Report</a></li>
+                                        <li><a href="#" class="block hover:text-[var(--color-blue)]">GMS</a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- Item w sub -->
+                                <li x-data="{ openSubMenu: null }"
+                                     @click="if (!$event.target.closest('a')) { openSubMenu === 'media' ? openSubMenu = null : openSubMenu = 'media' }" 
+                                     class="cursor-pointer select-none" 
+                                >
+                                    <div class="flex flex-row justify-between items-start w-full">
+                                        <a href="#" class="block text-[var(--color-heading)] hover:text-[var(--color-blue)]">
+                                            Media
+                                        </a>
+
+                                        <div class="ml-2 text-[var(--color-heading)] hover:text-[var(--color-blue)]">
+                                            <svg class="w-4 h-4 transform" 
+                                                :class="{ 'rotate-180': openSubMenu === 'media' }" 
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" 
+                                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 011.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z" 
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                            
+                                <!-- Submenu -->
+                                <ul x-show="openSubMenu === 'media'" class="ml-4 mt-2 space-y-2 text-sm text-[var(--color-text)]" x-cloak>
+                                    <li><a href="#" class="block hover:text-[var(--color-blue)]">News Update</a></li>
+                                    <li><a href="#" class="block hover:text-[var(--color-blue)]">Gallery</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- Item -->
+                            <li><a href="#" class="block text-[var(--color-heading)] hover:text-[var(--color-blue)]">Career</a></li>
+
+                            <!-- Item -->
+                            <li><a href="#" class="block text-[var(--color-heading)] hover:text-[var(--color-blue)]">Contact</a></li>
+                                
+                                
+                            </ul>
+
+                            <!--Button-->
+                            <div class="flex items-center lg:block sm:block mt-7">
+                                <a href="#" class="text-sm font-medium text-white bg-[var(--color-blue)] hover:bg-blue-700 px-4 py-2 rounded-md">
+                                    Sign In
+                                </a>
+                            </div>
+
+                            <!-- Icon -->
+                            <div class="flex flex-col gap-4 mt-10 ">
+                                <a href="#" class="flex flex-row gap-2 ">
+                                    <i aria-hidden="true" class="fas fa-phone-alt text-[var(--color-blue)]"></i>
+                                    <p class="!text-[var(--color-heading)]">Telephone : +62 21 227 831 98</p>
+                                </a>
+
+                                <a href="#" class="flex flex-row gap-2">
+                                    <i aria-hidden="true" class="fab fa-whatsapp text-[var(--color-blue)]"></i>
+                                    <p class="!text-[var(--color-heading)]">Whatsapp : +62 8521 1881 421</p>
+                                </a>
+                            </div>    
+
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>   
+        <!--End Header Menu-->
+
+
+        <!--Start Hero Banner-->
+        <section id="hero-banner" class="relative bg-cover bg-center overflow-hidden"  >
+            
+
+            <!-- Video Background -->
+            <div class="absolute inset-0 z-0 pointer-events-none">
+                <iframe class="w-full h-full object-cover transform scale-120"
+                    src="https://www.youtube.com/embed/1t_z7FMcsOw?autoplay=1&loop=1&mute=1&controls=0&playlist=1t_z7FMcsOw&modestbranding=1&showinfo=0"
+                    title="YouTube video background" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+            </div>
+
+
+            <!-- overlay -->
+            <div class="bg-[var(--color-overlayblack)] z-10 bg-opacity-60 relative">
+                <div class="flex flex-col justify-between items-start lg:pt-13 lg:pb-7 lg:h-[100vh] sm:h-[560px] h-[420px] gradient-black">
+
+        
+                    <!-- content -->
+                    <div class="flex flex-col items-start gap-6 lg:w-[1200px] mx-auto lg:px-0 sm:px-6 px-4 mt-40 z-20">
+                        <h1 data-aos="fade-up" class="text-left !text-white lg:max-w-[600px] lg:!text-[2.8rem] sm:!text-[2.2rem] !text-[1.5rem]">
+                            Kawasan Industri Strategis untuk Pertumbuhan Bisnis
+                        </h1>
+                        <p class="!text-white lg:max-w-[700px] sm:max-w-[550px] text-left">
+                            Fasilitas lengkap, aksesibilitas tinggi, dan dukungan profesional bagi investor.
+                        </p>
+
+                        <!--Button-->
+                        <a class="w-fit btn2 mt-5" data-aos="fade-down" href="#">
+                            <span class="gradient-text">Lihat Layanan</span>
+                            <span class="gradient-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+                                    <g clip-path="url(#clip0_145_484)">
+                                        <path class="arrow-path" d="M21.2356 11.0682C21.8172 10.4774 21.8172 9.5179 21.2356 8.92709L13.7914 1.36468C13.2098 0.77387 12.2653 0.77387 11.6837 1.36468C11.1022 1.9555 11.1022 2.91498 11.6837 3.50579L16.5923 8.48752L2.31795 8.48752C1.49443 8.48752 0.829101 9.16341 0.829101 10C0.829101 10.8366 1.49443 11.5125 2.31795 11.5125L16.5876 11.5125L11.6884 16.4942C11.1068 17.085 11.1068 18.0445 11.6884 18.6353C12.27 19.2261 13.2145 19.2261 13.796 18.6353L21.2403 11.0729L21.2356 11.0682Z" fill="url(#paint0_linear_145_484)"/>
+                                    </g>
+                                    <defs>
+                                        <linearGradient id="paint0_linear_145_484" x1="6.4406" y1="0.921573" x2="7.12695" y2="19.4465" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#1F77D3"/>
+                                            <stop offset="1" stop-color="#321B71"/>
+                                        </linearGradient>
+                                        <clipPath id="clip0_145_484">
+                                            <rect width="20" height="22.5" fill="white" transform="translate(0 20) rotate(-90)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </span>
+                        </a>
+                        
+                    </div>
+            
+
+                    <!-- counter -->
+                    <div class="flex row justify-between lg:w-[1200px] mx-auto  gap-4  !text-white ">
+
+                        <div class="self-center w-[150px]">
+                            <h5>Luas Area Tersedia</h5>
+                        </div>
+
+                        <!-- item counter -->
+                        <div class="p-5 flex flex-col justify-between  ">
+                            <div class="flex flex-row justify-start gap-1 mb-2">
+                                <h3 class="counter !font-medium lg:!text-4xl sm:!text-4xl !text-4xl" data-target="36">0</h3>
+                                <h3 class="plus !font-medium lg:!text-[1em] self-end">Ha</h3>
+                            </div>
+                            <div>
+                                <p class="!text-white">Tanah Industri</p>
+                            </div>
+                        </div>
+
+                        <!-- item counter -->
+                        <div class="p-5 flex flex-col justify-between  ">
+                            <div class="flex flex-row justify-start gap-1 mb-2">
+                                <h3 class="counter !font-medium lg:!text-4xl sm:!text-4xl !text-4xl" data-target="1000 ">0</h3>
+                                <h3 class="plus !font-medium lg:!text-[1em] self-end">Unit</h3>
+                            </div>
+                            <div>
+                                <p class="!text-white">BPSP</p>
+                            </div>
+                        </div>
+
+                        <!-- item counter -->
+                        <div class="p-5 flex flex-col justify-between  ">
+                            <div class="flex flex-row justify-start gap-1 mb-3">
+                                <h3 class="counter !font-medium lg:!text-4xl sm:!text-4xl !text-4xl" data-target="200 ">0</h3>
+                                <h3 class="plus !font-medium lg:!text-[1em] self-end">Unit</h3>
+                            </div>
+                            <div>
+                                <p class="!text-white">Food Court</p>
+                            </div>
+                        </div>
+
+                        <!-- item counter -->
+                        <div class="p-5 flex flex-col justify-between  ">
+                            <div class="flex flex-row justify-start gap-1 mb-3">
+                                <h3 class="counter !font-medium lg:!text-4xl sm:!text-4xl !text-4xl" data-target="50 ">0</h3>
+                                <h3 class="plus !font-medium lg:!text-[1em] self-end">Unit</h3>
+                            </div>
+                            <div>
+                                <p class="!text-white">ATM</p>
+                            </div>
+                        </div>
+
+                        <!-- item counter -->
+                        <div class="p-5 flex flex-col justify-between  ">
+                            <div class="flex flex-row justify-start gap-1 mb-3">
+                                <h3 class="counter !font-medium lg:!text-4xl sm:!text-4xl !text-4xl" data-target="50 ">0</h3>
+                                <h3 class="plus !font-medium lg:!text-[1em] self-end">Area</h3>
+                            </div>
+                            <div>
+                                <p class="!text-white">Area Parkir</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    
+        </section>
+        <!--End Hero Banner-->
+
+        <!-- Start About Home -->
+        <section id="about-home" class="bg-[var(--color-transit)] lg:py-30 py-18">
+            <div class="flex lg:flex-col sm:flex-row overflow-hidden relative flex-col-reverse lg:gap-0 sm:gap-10 gap-10  lg:px-0 lg:max-w-[1200px] mx-auto sm:px-6 px-4">
+                <!--top content-->
+                <div class="flex flex-row justify-between !gap-15 items-start -mb-10">
+                    <!--content left-->
+                    <div class="flex flex-col justify-start gap-5 !w-[55%]">
+                        <h6 class="bullet-1">tentang kiw</h6>
+                        <h2>Pilar Industri Jawa Tengah</h2>
+                        <p>
+                            PT Kawasan Industri Wijayakusuma (KIW) merupakan perusahaan yang bergerak di bidang pengembangan dan pengelolaan kawasan industri. Pemegang saham KIW antara lain; Kementerian BUMN, PT Danareksa (Persero), Pemerintah Provinsi Jawa Tengah, dan Pemerintah Kabupaten Cilacap.
+                        </p>
+                        <!--ISO-->
+                        <div class="flex flex-row items-center gap-5 mt-4">
+                            <img src="./img/iso-1.png" alt="iso">
+                            <img src="./img/iso-2.png" alt="iso">
+                            <img src="./img/iso-3.png" alt="iso">
+                            <p class="!text-[var(--color-heading)] !text-[1.3em] w-[60px]">ISO Certificate</p>
+                        </div>
+                        <!--button-->
+                        <a class="w-fit btn1 mt-5"data-aos="fade-down" href="#">selengkapnya
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                            </span>
+                        </a>
+                    </div>
+
+                    <!--image top right-->
+                    <div class="!w-[45%]">
+                        <img class="rounded-2xl !h-[550px]" src="./img/construction-site-with-cranes-construction-worker.jpg" alt="about">
+                    </div>
+                </div>
+ 
+
+                <!--bottom content-->
+                <div class="flex flex-row justify-start items-center gap-10">
+                    <!--content left-->
+                    <div class="w-[48%]">
+                        <img class="rounded-2xl h-[340px] object-cover" src="./img/pointing-sketch.jpg">
+                    </div>
+
+                    <!--content right-->
+                    <div class="grid grid-cols-2 gap-8">
+                        <!--counter-->
+                        <div class="p-8 px-11 flex flex-col justify-between items-start bg-white rounded-2xl">
+                            <div class="flex flex-row justify-start gap-1 mb-2">
+                                <h3 class="counter gradient-text !font-medium lg:!text-5xl sm:!text-4xl !text-4xl" data-target="36">0</h3>
+                                <h3 class="plus gradient-text !font-medium lg:!text-5xl sm:!text-4xl !text-4xl">+</h3>
+                            </div>
+                            <div>
+                                <p class="!text-[var(--color-heading)]">Tahun Pengalaman</p>
+                            </div>
+                        </div>
+
+                        <!--counter-->
+                        <div class="p-8 px-11 flex flex-col justify-between bg-white rounded-2xl">
+                            <div class="flex flex-row justify-start gap-1 mb-2">
+                                <h3 class="counter gradient-text !font-medium lg:!text-5xl sm:!text-4xl !text-4xl" data-target="100">0</h3>
+                                <h3 class="plus gradient-text !font-medium lg:!text-5xl sm:!text-4xl !text-4xl">+</h3>
+                            </div>
+                            <div>
+                                <p class="!text-[var(--color-heading)]">Tenant Bekerjasama</p>
+                            </div>
+                        </div>
+
+                        <!--counter-->
+                        <div class="p-8 px-11 flex flex-col justify-between bg-white rounded-2xl">
+                            <div class="flex flex-row justify-start gap-1 mb-2">
+                                <h3 class="counter gradient-text !font-medium lg:!text-5xl sm:!text-4xl !text-4xl" data-target="5">0</h3>
+                                <h3 class="plus gradient-text !font-medium lg:!text-5xl sm:!text-4xl !text-4xl">+</h3>
+                            </div>
+                            <div>
+                                <p class="!text-[var(--color-heading)]">Penghargaan</p>
+                            </div>
+                        </div>
+
+                        
+                        <!--counter-->
+                        <div class="p-8 px-11 flex flex-col justify-between bg-white rounded-2xl">
+                            <div class="flex flex-row justify-start gap-1 mb-2">
+                                <h3 class="counter gradient-text !font-medium lg:!text-5xl sm:!text-4xl !text-4xl" data-target="4">0</h3>
+                                <h3 class="plus gradient-text !font-medium lg:!text-5xl sm:!text-4xl !text-4xl">+</h3>
+                            </div>
+                            <div>
+                                <p class="!text-[var(--color-heading)]">Sertifikasi</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End About Home -->
+
+        <!-- Start Layanan Home -->
+        <section id="about-home" class="bg-[url(./img/bg-grad.jpg)] lg:py-30 py-18 bg-cover ">
+            <div class="flex lg:flex-col sm:flex-row overflow-hidden relative flex-col-reverse lg:gap-20 sm:gap-10 gap-10  lg:px-0 lg:max-w-[1200px] mx-auto sm:px-6 px-4">
+                <!--Content Heading-->
+                <div class="flex flex-row justify-between items-end">
+                    <!--Heading-->
+                    <div class="flex flex-col justify-start gap-5 w-[60%]">
+                        <h6 class="bullet-2 !text-white">layanan kami</h6>
+                        <h2 class="!text-white">Solusi Komprehensif untuk Kebutuhan Industri</h2>
+                    </div>
+                    <!--Button-->
+                    <div class="w-[40%] flex flex-row justify-end">
+                        <a class="w-fit btn2 mt-5" data-aos="fade-down" href="#">
+                            <span class="gradient-text">Lihat Layanan</span>
+                            <span class="gradient-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+                                    <g clip-path="url(#clip0_145_484)">
+                                        <path class="arrow-path" d="M21.2356 11.0682C21.8172 10.4774 21.8172 9.5179 21.2356 8.92709L13.7914 1.36468C13.2098 0.77387 12.2653 0.77387 11.6837 1.36468C11.1022 1.9555 11.1022 2.91498 11.6837 3.50579L16.5923 8.48752L2.31795 8.48752C1.49443 8.48752 0.829101 9.16341 0.829101 10C0.829101 10.8366 1.49443 11.5125 2.31795 11.5125L16.5876 11.5125L11.6884 16.4942C11.1068 17.085 11.1068 18.0445 11.6884 18.6353C12.27 19.2261 13.2145 19.2261 13.796 18.6353L21.2403 11.0729L21.2356 11.0682Z" fill="url(#paint0_linear_145_484)"/>
+                                    </g>
+                                    <defs>
+                                        <linearGradient id="paint0_linear_145_484" x1="6.4406" y1="0.921573" x2="7.12695" y2="19.4465" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#1F77D3"/>
+                                            <stop offset="1" stop-color="#321B71"/>
+                                        </linearGradient>
+                                        <clipPath id="clip0_145_484">
+                                            <rect width="20" height="22.5" fill="white" transform="translate(0 20) rotate(-90)"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!--Content-->
+                <div class="flex flex-row gap-7">
+
+                    <!--Item-->
+                    <div class="group transition-all duration-[500ms]  relative flex flex-col bg-[var(--color-transparent)] rounded-2xl overflow-hidden w-1/3">
+                        <div class="flex flex-col justify-between gap-15 px-6 pt-6">
+                            <div class="flex flex-col gap-3">
+                                <h6 class="!text-white">01.</h6>
+                                <h3 class="!text-white">Lahan Industri Siap Bangun</h3>
+                            </div>
+                            <div>
+                                <img class="rounded-2xl rounded-b-none h-[250px]  object-cover" src="./img/aerial-view-warehouse-industrial-plant-logistics-center-from-view-from.jpg">
+                            </div>
+                            
+                        </div>
+                        <div class="absolute group-hover:top-[0%] top-[100%] transition-all duration-[500ms] flex flex-col justify-between bg-white rounded-2xl gap-15 px-6 pt-6 h-full">
+                            <h6>01.</h6>
+                            <div class="flex flex-col gap-5">
+                                <h3>Lahan Industri Siap Bangun</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <div class="mt-3">
+                                    <a class="w-full btn3" href="#">
+                                        <span class="gradient-text">Lihat Layanan</span>
+                                        <span class="gradient-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+                                                <g clip-path="url(#clip0_145_484)">
+                                                    <path class="arrow-path" d="M21.2356 11.0682C21.8172 10.4774 21.8172 9.5179 21.2356 8.92709L13.7914 1.36468C13.2098 0.77387 12.2653 0.77387 11.6837 1.36468C11.1022 1.9555 11.1022 2.91498 11.6837 3.50579L16.5923 8.48752L2.31795 8.48752C1.49443 8.48752 0.829101 9.16341 0.829101 10C0.829101 10.8366 1.49443 11.5125 2.31795 11.5125L16.5876 11.5125L11.6884 16.4942C11.1068 17.085 11.1068 18.0445 11.6884 18.6353C12.27 19.2261 13.2145 19.2261 13.796 18.6353L21.2403 11.0729L21.2356 11.0682Z" fill="url(#paint0_linear_145_484)"/>
+                                                </g>
+                                                <defs>
+                                                    <linearGradient id="paint0_linear_145_484" x1="6.4406" y1="0.921573" x2="7.12695" y2="19.4465" gradientUnits="userSpaceOnUse">
+                                                        <stop stop-color="#1F77D3"/>
+                                                        <stop offset="1" stop-color="#321B71"/>
+                                                    </linearGradient>
+                                                    <clipPath id="clip0_145_484">
+                                                        <rect width="20" height="22.5" fill="white" transform="translate(0 20) rotate(-90)"/>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--Item-->
+                    <div class="group transition-all duration-[500ms]  relative flex flex-col bg-[var(--color-transparent)] rounded-2xl overflow-hidden w-1/3">
+                        <div class="flex flex-col justify-between gap-15 px-6 pt-6">
+                            <div class="flex flex-col gap-3">
+                                <h6 class="!text-white">02.</h6>
+                                <h3 class="!text-white">Bangunan Pabrik Siap Pakai (BPSP)</h3>
+                            </div>
+                            <div>
+                                <img class="rounded-2xl rounded-b-none h-[250px]  object-cover" src="./img/exterior-view-modern-industrial-building.jpg">
+                            </div>
+                            
+                        </div>
+                        <div class="absolute group-hover:top-[0%] top-[100%] transition-all duration-[500ms] flex flex-col justify-between bg-white rounded-2xl gap-15 px-6 pt-6 h-full">
+                            <h6>02.</h6>
+                            <div class="flex flex-col gap-5">
+                                <h3>Bangunan Pabrik Siap Pakai (BPSP)</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <div class="mt-3">
+                                    <a class="w-full btn3" href="#">
+                                        <span class="gradient-text">Lihat Layanan</span>
+                                        <span class="gradient-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+                                                <g clip-path="url(#clip0_145_484)">
+                                                    <path class="arrow-path" d="M21.2356 11.0682C21.8172 10.4774 21.8172 9.5179 21.2356 8.92709L13.7914 1.36468C13.2098 0.77387 12.2653 0.77387 11.6837 1.36468C11.1022 1.9555 11.1022 2.91498 11.6837 3.50579L16.5923 8.48752L2.31795 8.48752C1.49443 8.48752 0.829101 9.16341 0.829101 10C0.829101 10.8366 1.49443 11.5125 2.31795 11.5125L16.5876 11.5125L11.6884 16.4942C11.1068 17.085 11.1068 18.0445 11.6884 18.6353C12.27 19.2261 13.2145 19.2261 13.796 18.6353L21.2403 11.0729L21.2356 11.0682Z" fill="url(#paint0_linear_145_484)"/>
+                                                </g>
+                                                <defs>
+                                                    <linearGradient id="paint0_linear_145_484" x1="6.4406" y1="0.921573" x2="7.12695" y2="19.4465" gradientUnits="userSpaceOnUse">
+                                                        <stop stop-color="#1F77D3"/>
+                                                        <stop offset="1" stop-color="#321B71"/>
+                                                    </linearGradient>
+                                                    <clipPath id="clip0_145_484">
+                                                        <rect width="20" height="22.5" fill="white" transform="translate(0 20) rotate(-90)"/>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                     <!--Item-->
+                     <div class="group transition-all duration-[500ms]  relative flex flex-col bg-[var(--color-transparent)] rounded-2xl overflow-hidden w-1/3">
+                        <div class="flex flex-col justify-between gap-15 px-6 pt-6">
+                            <div class="flex flex-col gap-3">
+                                <h6 class="!text-white">03.</h6>
+                                <h3 class="!text-white">Kerjasama Komersial Kawasan Industri</h3>
+                            </div>
+                            <div>
+                                <img class="rounded-2xl rounded-b-none h-[250px]  object-cover" src="./img/exterior-view-modern-industrial-building.jpg">
+                            </div>
+                            
+                        </div>
+                        <div class="absolute group-hover:top-[0%] top-[100%] transition-all duration-[500ms] flex flex-col justify-between bg-white rounded-2xl gap-15 px-6 pt-6 h-full">
+                            <h6>03.</h6>
+                            <div class="flex flex-col gap-5">
+                                <h3>Kerjasama Komersial Kawasan Industri</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <div class="mt-3">
+                                    <a class="w-full btn3" href="#">
+                                        <span class="gradient-text">Lihat Layanan</span>
+                                        <span class="gradient-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+                                                <g clip-path="url(#clip0_145_484)">
+                                                    <path class="arrow-path" d="M21.2356 11.0682C21.8172 10.4774 21.8172 9.5179 21.2356 8.92709L13.7914 1.36468C13.2098 0.77387 12.2653 0.77387 11.6837 1.36468C11.1022 1.9555 11.1022 2.91498 11.6837 3.50579L16.5923 8.48752L2.31795 8.48752C1.49443 8.48752 0.829101 9.16341 0.829101 10C0.829101 10.8366 1.49443 11.5125 2.31795 11.5125L16.5876 11.5125L11.6884 16.4942C11.1068 17.085 11.1068 18.0445 11.6884 18.6353C12.27 19.2261 13.2145 19.2261 13.796 18.6353L21.2403 11.0729L21.2356 11.0682Z" fill="url(#paint0_linear_145_484)"/>
+                                                </g>
+                                                <defs>
+                                                    <linearGradient id="paint0_linear_145_484" x1="6.4406" y1="0.921573" x2="7.12695" y2="19.4465" gradientUnits="userSpaceOnUse">
+                                                        <stop stop-color="#1F77D3"/>
+                                                        <stop offset="1" stop-color="#321B71"/>
+                                                    </linearGradient>
+                                                    <clipPath id="clip0_145_484">
+                                                        <rect width="20" height="22.5" fill="white" transform="translate(0 20) rotate(-90)"/>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+              
+
+                </div>
+            </div>
+        </section>
+        <!-- End Layanan Home -->
+
+    
+  </div>
+    
+
+
+
+<script src="./splash-screen.js-"></script>
+<script src="./input-select-box.js"></script>
+<script src="./video-modal.js"></script>
+<script src="./counter.js"></script>
+<script src="./bg-switcher.js"></script>
+<script src="./tippy.js"></script>
+<script>AOS.init();</script>
+
+</body>
+</html>
