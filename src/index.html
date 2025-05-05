@@ -1,35 +1,44 @@
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
-  
-  <!--Google Font-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-  
-  <!--AOS-->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
 
-  <!-- Tippy.js -->
-  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" />
-  <script src="https://unpkg.com/popper.js@1"></script>
-  <script src="https://unpkg.com/tippy.js@5"></script>
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 
-<!-- Alpine JS -->
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!--AOS-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Tippy.js -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" />
+    <script src="https://unpkg.com/popper.js@1"></script>
+    <script src="https://unpkg.com/tippy.js@5"></script>
+
+    <!-- Alpine JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Swiper CSS -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+    <title>Kawasan Industri Wijayakusuma</title>
 
-  <title>Kawasan Industri Wijayakusuma</title>
 </head>
+
 <body>
 
     <!--Opening Animation  
@@ -395,11 +404,18 @@
 
             <!-- Video Background -->
             <div class="absolute inset-0 z-0 pointer-events-none">
-                <iframe class="w-full h-full object-cover transform scale-120"
+
+                <img id="video-fallback" src="./img/background-home.jpg" alt="Banner Image" class="w-full h-full object-cover absolute inset-0 z-0" />
+
+
+                <iframe id="video-frame" class="w-full h-full object-cover transform scale-120"
                     src="https://www.youtube.com/embed/1t_z7FMcsOw?autoplay=1&loop=1&mute=1&controls=0&playlist=1t_z7FMcsOw&modestbranding=1&showinfo=0"
                     title="YouTube video background" frameborder="0"
                     allow="autoplay; encrypted-media" allowfullscreen>
                 </iframe>
+                
+                   
+              
             </div>
 
 
@@ -782,18 +798,108 @@
         </section>
         <!-- End Layanan Home -->
 
+        <!--Start Fasilitas Home-->
+        <section class="overflow-hidden">
+            <div class="flex flex-row lg:px-0 lg:max-w-[1200px] mx-auto gap-10 lg:my-30 sm:px-6 px-4">
+            <!--title-->
+            <div class="flex flex-col justify-between gap-5 !w-[40%]">
+                <div class="flex flex-col justify-between gap-5" >
+                    <h6 class="bullet-1">fasilitas lengkap</h6>
+                    <h2>Lingkungan Industri yang Lengkap</h2>
+                </div>  
+                
+                <!--button-->
+                <a class="w-fit btn1 mt-5"data-aos="fade-down" href="#">semua fasilitas
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+
+            <!--carousel-->
+            <div class="!w-[55%] relative fasilitas-home">
+                <div class="swiper  ">
+                    <div class="swiper-wrapper">
+                        <!--Item-->
+                        <div class="swiper-slide !flex flex-col justify-between bg-[var(--color-transit)] overflow-hidden rounded-2xl p-6 pb-0">
+                            <div class="mb-10">
+                                <h6>01.</h6>
+                                <h4>Masjid</h4>
+                            </div>
+                        
+                            <img class="rounded-2xl rounded-b-none h-[180px] object-cover self-end w-full" src="./img/morning-view-malacca-straits-mosque-masjid-selat-melaka-it-is-mosque-located-man-made-malacca-island-near-malacca-town-malaysia (1).jpg">
+                        </div>
+
+                        <!--Item-->
+                        <div class="swiper-slide !flex flex-col justify-between bg-[var(--color-transit)] overflow-hidden rounded-2xl p-6 pb-0">
+                            <div class="mb-10">
+                                <h6>02.</h6>
+                                <h4>Foodcourt</h4>
+                            </div>
+                            <img class="rounded-2xl rounded-b-none h-[180px] object-cover w-full" src="./img/chafing-dish-heaters-display-banquet-table-with-ch-2025-03-31-18-10-54-utc.jpg">
+                        </div>
+
+                        <!--Item-->
+                        <div class="swiper-slide !flex flex-col justify-between bg-[var(--color-transit)] overflow-hidden rounded-2xl p-6 pb-0">
+                            <div class="mb-10">
+                                <h6>03.</h6>
+                                <h4>Pemadam Kebakaran</h4>
+                            </div>
+                            <img class="rounded-2xl rounded-b-none h-[180px] object-cover w-full" src="./img/firefighter-training-with-protective-wear-spraying-high-pressure-water-fire.jpg">
+                        </div>
+
+                        <!--Item-->
+                        <div class="swiper-slide !flex flex-col justify-between bg-[var(--color-transit)] overflow-hidden rounded-2xl p-6 pb-0">
+                            <div class="mb-10">
+                                <h6>04.</h6>
+                                <h4>Ambulan</h4>
+                            </div>
+                            <img class="rounded-2xl rounded-b-none h-[180px] object-cover w-full" src="./img/ambulan.jpg">
+                        </div>
+                    </div>
+
+                </div>
+
+                
+                    <!-- Custom Arrow Left -->
+                    <div class="swiper-button-prev gradient-blue rounded-[100%] !h-[30px] !w-[30px] p-1 ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" transform="rotate(180)">
+                        <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Custom Arrow Right -->
+                    <div class="swiper-button-next gradient-blue  rounded-[100%] !h-[30px] !w-[30px] p-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+            
+            </div>
+
+            </div>
+        </section>
+
+         <!--End Fasilitas Home-->
+
     
   </div>
     
 
 
-
+  <script src="./fallback-video-image.js"></script>
 <script src="./splash-screen.js-"></script>
 <script src="./input-select-box.js"></script>
 <script src="./video-modal.js"></script>
 <script src="./counter.js"></script>
 <script src="./bg-switcher.js"></script>
 <script src="./tippy.js"></script>
+<script src="./swiper.js"></script>
 <script>AOS.init();</script>
 
 </body>

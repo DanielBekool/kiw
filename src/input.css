@@ -19,6 +19,11 @@
   background: linear-gradient(180deg, rgba(21, 25, 24, 1) 0%, rgba(0, 0, 0, 0) 60%);
 }
 
+.gradient-blue {
+  
+  background: linear-gradient(268deg, #1F77D3 1.1%, #321B71 99.1%) !important;
+}
+
 
 /* font */
 p {
@@ -361,3 +366,27 @@ h6 {
   opacity: 1;
   transition: .7s ease; 
 }
+
+
+/* swiper */
+.swiper-button-next:after, .swiper-button-prev:after {
+  display: none !important;
+}
+
+.fasilitas-home .swiper {
+  margin-right: -200px !important;
+}
+
+
+.fasilitas-home .swiper-button-prev {
+  left: -16px !important;
+  top: 160px;
+}
+
+
+.fasilitas-home .swiper-button-next {
+  right: -16px !important;
+  top: 160px !important;
+}
+
+
