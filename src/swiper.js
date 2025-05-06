@@ -1,28 +1,55 @@
-const swiper = new Swiper('.swiper', {
-    loop: true, // Aktifkan infinite loop
-    spaceBetween: 20,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
+const swiper1 = new Swiper('.swiper-1', {
+  loop: true,
+  spaceBetween: 20,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: true,
+  },
+  breakpoints: {
+    1024: {
+      slidesPerView: 3,
     },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+    768: {
+      slidesPerView: 2,
     },
-    autoplay: {
-      delay: 3000, 
-      disableOnInteraction: false, 
+    0: {
+      slidesPerView: 1,
     },
-    breakpoints: {
-      1024: {
-        slidesPerView: 3,
-      },
-      768: {
-        slidesPerView: 2,
-      },
-      0: {
-        slidesPerView: 1,
-      },
+  },
+});
+
+const swiper2 = new Swiper('.swiper-2', {
+  loop: true,
+  spaceBetween: 20,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: true,
+  },
+  breakpoints: {
+    1024: {
+      slidesPerView: 4,
     },
-  });
-  
+    768: {
+      slidesPerView: 2,
+    },
+    0: {
+      slidesPerView: 1,
+    },
+  },
+});

@@ -24,6 +24,16 @@
   background: linear-gradient(268deg, #1F77D3 1.1%, #321B71 99.1%) !important;
 }
 
+.gradient-overlay-keunggulan {
+  background: linear-gradient(
+    180deg,
+    rgba(16, 17, 19, 0.5) 0%,
+    rgba(16, 17, 19, 0.75) 50%,
+    #101113 100%
+  );
+}
+
+
 
 /* font */
 p {
@@ -89,6 +99,7 @@ h6 {
   letter-spacing: 0.42px;
   text-transform: uppercase;
   color: var(--color-heading):
+  font-weight: 500;
 }
 
 
@@ -115,7 +126,7 @@ h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  font-weight: bold;
+ 
 
   
 }
@@ -368,25 +379,38 @@ h6 {
 }
 
 
-/* swiper */
+/* swiper fasilitas */
 .swiper-button-next:after, .swiper-button-prev:after {
   display: none !important;
 }
 
-.fasilitas-home .swiper {
+#fasilitas-home .swiper {
   margin-right: -200px !important;
 }
 
 
-.fasilitas-home .swiper-button-prev {
+#fasilitas-home .swiper-button-prev {
   left: -16px !important;
   top: 160px;
 }
 
 
-.fasilitas-home .swiper-button-next {
+#fasilitas-home .swiper-button-next {
   right: -16px !important;
   top: 160px !important;
 }
 
+/* swiper tenant */
+#tenant-home .swiper {
+  margin-right: -400px !important;
+}
 
+#tenant-home .swiper-button-prev {
+  left: -16px !important;
+ 
+}
+
+#tenant-home .swiper-button-next {
+  right: -12px !important;
+ 
+}
